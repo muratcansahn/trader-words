@@ -19,6 +19,7 @@ export default function RootLayout() {
 
   useEffect(() => {
     if (loaded) {
+      // Expo'nun kendi splash screen'ini gizle
       SplashScreen.hideAsync();
     }
   }, [loaded]);
@@ -29,8 +30,10 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="index" options={{ animation: 'none' }} />
+        <Stack.Screen name="(tabs)" options={{ animation: 'fade' }} />
+        <Stack.Screen name="term-detail" />
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="auto" />

@@ -40,8 +40,7 @@ export default function HomeScreen() {
   const filteredTerms = useMemo(() => {
     if (searchQuery.trim()) {
       return financialTerms.filter(term => 
-        term.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        term.description.toLowerCase().includes(searchQuery.toLowerCase())
+        term.title.toLowerCase().includes(searchQuery.toLowerCase())
       );
     } else if (selectedLetter === '#') {
       // Show all terms for # symbol
